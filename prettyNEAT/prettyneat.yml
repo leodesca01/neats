@@ -1,0 +1,12 @@
+name: prettyneat
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  # -------- core --------
+  - python=3.8.16
+  - numpy=1.23         # 1.15.2 is fine too; 1.15.4 has security patches
+  - mpi4py=3.1.5
+  - gym=0.21.0
+  - pip                  # keep pip inside the env
+
