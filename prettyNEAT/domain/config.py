@@ -170,3 +170,23 @@ bullet_ant = Game(env_name='AntBulletEnv-v0',
 )
 games['bullet_ant'] = bullet_ant
 
+
+# -- Slime Volley ------------------------------------------------------ -- #
+
+slime = Game(
+    env_name='SlimeVolley-v0',
+    actionSelect='all',              # use all outputs for continuous control
+    input_size=12,                    # 8-dimensional observation
+    output_size=3,                   # 3-dimensional action (move left/right + jump)
+    time_factor=0,
+    layers=[16, 0],                  # one hidden layer of size 16
+    i_act=np.full(12, 1),
+    h_act=list(range(1, 17)),
+    o_act=np.full(3, 1),
+    weightCap=2.0,
+    noise_bias=0.0,
+    output_noise=[False, False, False],
+    max_episode_length=1000,
+    in_out_labels=[]
+)
+games['slime'] = slime

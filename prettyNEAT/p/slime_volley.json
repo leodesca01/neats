@@ -1,0 +1,16 @@
+{
+  "task":            "slime",
+  "envName":         "SlimeVolley-v0",
+  "maxGen":          200,
+  "nPop":            256,
+  "nCores":          4,
+  "prob_addNode":    0.03,
+  "prob_addConn":    0.05,
+  "prob_toggleConn": 0.01,
+  "prob_mutateWt":   0.80,
+  "prob_mutateBias": 0.05,
+  "compatThreshold": 3.0,
+  "c1":               1.0,
+  "c2":               1.0,
+  "c3":               0.4
+}
