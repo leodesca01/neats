@@ -1,6 +1,4 @@
 import numpy as np
-import gym
-import slimevolleygym 
 from matplotlib.pyplot import imread
 
 
@@ -53,6 +51,14 @@ def make_env(env_name, seed=-1, render_mode=False):
     if (env_name.startswith("CartPoleSwingUp_Hard")):
       env.dt = 0.01
       env.t_limit = 200
+
+# -- Slime Volley -------------------------------------------- -- #
+  elif (env_name.startswith("SlimeVolley")):
+    import gym
+    import slimevolleygym 
+    from domain.slimevolley import SlimeVolleyEnv
+    env = SlimeVolleyEnv(render_mode=render_mode)
+  
 
   # -- Other  -------------------------------------------------------- -- #
   else:
