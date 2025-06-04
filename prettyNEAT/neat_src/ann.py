@@ -235,7 +235,7 @@ def selectAct(action, actSelect):
 
     Single Action:
     - Hard: a single action is chosen based on the highest index
-    - Prob: a single action is chosen probablistically with higher values
+    - Prob: a single action is chosen probabilistically with higher values
             more likely to be chosen
 
     We aren't selecting a single action:
