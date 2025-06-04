@@ -1,6 +1,5 @@
 # neats
 evolving topologies
-iniziamo 
 
 ## Using with Slime Volley
 
