@@ -123,7 +123,12 @@ def getCrowdingDist(objVector):
   nextDist = np.abs(sortedObj-shiftVec[2:])
   crowd = prevDist+nextDist
   if (sortedObj[-1]-sortedObj[0]) > 0:
-    crowd *= abs((1/sortedObj[-1]-sortedObj[0])) # Normalize by fitness range
+    # Normalize by the range of objective values. The original expression used
+    # ``1/sortedObj[-1]-sortedObj[0]`` which due to operator precedence was
+    # interpreted as ``(1 / sortedObj[-1]) - sortedObj[0]``.  This resulted in
+    # crowding distances being scaled incorrectly.  Instead we want the
+    # difference between the maximum and minimum value in the denominator.
+    crowd *= abs(1.0 / (sortedObj[-1] - sortedObj[0]))
   
   # Restore original order
   dist = np.empty(len(key))
