@@ -59,6 +59,14 @@ def make_env(env_name, seed=-1, render_mode=False):
     env = gym.make(env_name)
 
   if (seed >= 0):
-    domain.seed(seed)
+    # The previous implementation attempted to call ``domain.seed`` which does
+    # not exist and raised an ``AttributeError`` when seeding environments.
+    # Gym environments provide a ``seed`` method (or accept a seed via
+    # ``reset`` in newer versions), so we forward the seed correctly.
+    try:
+      env.seed(seed)
+    except AttributeError:
+      # Fallback for gymnasium style API where seeding happens via ``reset``
+      env.reset(seed=seed)
 
   return env
